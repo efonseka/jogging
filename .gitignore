@@ -1,0 +1,36 @@
+############################################################
+# Node / Vite / React
+############################################################
+node_modules/
+dist/
+*.log
+npm-debug.log*
+.yarn/*
+.pnpm-store/
+
+# Vite cache (optional)
+.vite/
+
+############################################################
+# OS-spezifisch
+############################################################
+.DS_Store
+Thumbs.db
+
+############################################################
+# VS Code & Codespaces
+############################################################
+.vscode/*
+!.vscode/extensions.json   # empfohlene Extensions dürfen rein
+!.vscode/settings.json     # teamweite Settings optional
+
+.codespaces/*              # Laufzeitdaten des Containers
+.history/
+*.code-workspace
+
+############################################################
+# Env / Secrets
+############################################################
+.env
+.env.local
+.env.*.local
