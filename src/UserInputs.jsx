@@ -4,10 +4,12 @@ export default function UserInputs({user,onChange}){
   <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
    <label className="flex flex-col"><span>Max. Puls</span>
     <input type="number" className="border rounded px-2 py-1" value={user.hrMax??''}
-     onChange={e=>onChange({...user,hrMax:+e.target.value})}/></label>
+     onChange={e=>onChange({...user,
+      hrMax:e.target.value===''?undefined:+e.target.value})}/></label>
    <label className="flex flex-col"><span>Gewicht (kg)</span>
     <input type="number" className="border rounded px-2 py-1" value={user.weight??''}
-     onChange={e=>onChange({...user,weight:+e.target.value})}/></label>
+     onChange={e=>onChange({...user,
+      weight:e.target.value===''?undefined:+e.target.value})}/></label>
    <label className="flex flex-col"><span>Geschlecht</span>
     <select className="border rounded px-2 py-1" value={user.gender}
      onChange={e=>onChange({...user,gender:e.target.value})}>

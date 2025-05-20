@@ -1,13 +1,13 @@
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { LineChart,Line,XAxis,YAxis,Tooltip,CartesianGrid } from 'recharts'
 export default function RealtimeMetabolism({user}){
- const [hr,setHr]=useState(120)
- const weight=user.weight||70
- const hrMax=user.hrMax||190
+const [hr,setHr]=useState(120)
+const weight=user.weight||70
+const hrMax=user.hrMax||190
+ useEffect(()=>{ if(hr>hrMax) setHr(hrMax) },[hrMax])
  const intensity=hr/hrMax
  const kcalPerHour=weight*hr*0.063
- const fat=g=>(g)
  const fatPerH=(kcalPerHour*0.6)/9
  const co2=kcalPerHour*0.86
  const sweat=0.1+intensity*1.4
