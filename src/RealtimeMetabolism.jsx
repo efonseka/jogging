@@ -10,18 +10,19 @@ const hrMax=user.hrMax||190
  const kcalPerHour=weight*hr*0.063
  const fatPerH=(kcalPerHour*0.6)/9
  const co2=kcalPerHour*0.86
- const sweat=0.1+intensity*1.4
+ const sweatLiters=0.1+intensity*1.4
+ const sweat=sweatLiters*1000
  const metrics=[
    {name:'Fett (g/h)',       val:+fatPerH.toFixed(1)},
    {name:'CO₂ (g/h)',        val:+co2.toFixed(0)},
-   {name:'Schwitzen (l/h)',  val:+sweat.toFixed(2)},
+   {name:'Schwitzen (g/h)',  val:+sweat.toFixed(0)},
    {name:'Energie (kcal/h)', val:+kcalPerHour.toFixed(0)}
  ]
 
  const chartData=[
    {
      name:'Schwitzen + CO₂ + Fett',
-     sweat:+sweat.toFixed(2),
+     sweat:+sweat.toFixed(0),
      co2:+co2.toFixed(0),
      fat:+fatPerH.toFixed(1),
      kcal:0
@@ -57,7 +58,7 @@ const hrMax=user.hrMax||190
       <XAxis dataKey="name" />
       <YAxis />
       <Tooltip />
-      <Bar dataKey="sweat" stackId="a" fill="#93c5fd" name="Schwitzen (l/h)" />
+      <Bar dataKey="sweat" stackId="a" fill="#93c5fd" name="Schwitzen (g/h)" />
       <Bar dataKey="co2" stackId="a" fill="#60a5fa" name="CO₂ (g/h)" />
       <Bar dataKey="fat" stackId="a" fill="#3b82f6" name="Fett (g/h)" />
       <Bar dataKey="kcal" fill="#0ea5e9" name="Energie (kcal/h)" />
